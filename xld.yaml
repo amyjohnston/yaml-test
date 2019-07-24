@@ -1,5 +1,16 @@
+---
 apiVersion: xl-deploy/v1
 kind: Applications
 spec:
-- directory: Applications/XL1
-
+- directory: Applications/Docker
+  children:
+  - name: elasticsearch
+    type: udm.Application
+    lastVersion: 7.2.0
+    children:
+    - name: 7.2.0
+      type: udm.DeploymentPackage
+      deployables:
+      - name: elasticsearch
+        type: docker.ContainerSpec
+        image: elasticsearch:7.2.0
