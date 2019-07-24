@@ -13,4 +13,6 @@ spec:
       deployables:
       - name: elasticsearch
         type: docker.ContainerSpec
+        containerName: '{{container-name}}'
         image: elasticsearch:7.2.0
+        showLogsAfter: "3"
